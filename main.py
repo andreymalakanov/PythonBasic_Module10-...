@@ -1,53 +1,21 @@
-# Andrey Malakanov
-# Skillbox PythonBasic
-
-# Practice 10.2 - 1 
-
-# Напишите программу, которая выводит квадратную матрицу размера N на N. В каждой нечётной строке матрицы идут числа от 1 до N, а в каждой чётной — просто числа, равные номеру этой строки.
-
-print('Задача 1. Матрица')
-
-size = int(input('Введите размер матрицы: '))
-
-for row in range(1, size + 1):
-  for col in range(1, size + 1):
-    if row % 2 != 0:
-      print(row, end = ' ')
-    else:
-      print(col, end = ' ')
-  print()
-
-print('\n' + '=' * 20, '\n')
 
 
-# Practice 10.2 - 2
+# Пользователь вводит последовательность из N чисел. Напишите программу, которая подсчитывает общее количество цифр больше пяти во всей последовательности.
 
-print('Задача 2. Чёрный ящик')
 
-size = int(input('Введите размер матрицы: '))
 
-for row in range(1, size + 1):
-  for col in range(1, size + 1):
-    if col % 3 != 0:
-      print(row, end = ' ')
-    else:
-      print(col, end = ' ')
-  print()
+seqNum = int(input('Введите Кол-во чисел: '))
+numeral = int(input('Введите цифру для подсчета: '))
+while numeral < 0 or numeral > 9:
+  numeral = int(input('Не верный ввод. Введите цифру для подсчета  в диапозоне от 0 до 9: '))
+numCount = 0
+for num in range(seqNum):
+  number = int(input(f'Введите {num + 1}-е число: '))
+  while number > 0:
+    if number % 10 == numeral:
+      numCount += 1
+    number //= 10
 
-print('\n' + '=' * 20, '\n')
-
-# Practice 10.2 - 3
-
-print('Задача 3. Координатные оси')
-
-# Напишите программу, которая рисует координатные оси на поле 20×50.
-
-for row in range(20):
-  for col in range(50):
-    if row == 9:
-      print('-', end = '')
-    elif col == 24:
-      print('|', end = '')
-    else:
-      print(' ', end = '')
-  print()
+print(f'Цифр {numeral} в последовательности: {numCount}')
+  
+print('\n' * 5 + '=' * 30, '\n')
